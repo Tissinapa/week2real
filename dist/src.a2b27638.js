@@ -118,7 +118,67 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/index.js":[function(require,module,exports) {
+if (document.readyState !== "loading") {
+  console.log("Document is ready");
+  initializeCode();
+} else {
+  document.addEventListener("DOMcontentLoaded", function () {
+    console.log("Document is ready after waiting");
+    initializeCode();
+  });
+}
 
+function initializeCode() {
+  countRowsInTable();
+  var btnAddData = document.getElementById("submit-data");
+  /*const btnRemoveTable = document.getElementById("empty-table");*/
+
+  checkboxAdmin();
+  btnAddData.addEventListener("click", function () {
+    var table = document.getElementById("dataTable");
+    var row = table.insertRow(countRowsInTable());
+    var userColumn = row.insertCell(0);
+    var emailColumn = row.insertCell(1);
+    var addressColumn = row.insertCell(2);
+    var adminColumn = row.insertCell(3);
+    /*console.log("toimii");*/
+
+    userColumn.innerHTML = document.getElementById("input-username").value;
+    emailColumn.innerHTML = document.getElementById("input-email").value;
+    addressColumn.innerHTML = document.getElementById("input-address").value;
+    adminColumn.innerHTML = checkboxAdmin();
+  });
+  /*btnRemoveTable.addEventListener("click", function(){
+      const table=document.getElementById("dataTable");
+      const rows=document.getElementsByTagName("tr");
+      const rowCount=rows.length;
+      
+      for(let i=rowCount-1; i > 0; i--){
+          table.removeChild(rows[i]);
+      }
+  })*/
+}
+
+function countRowsInTable() {
+  var countRows = document.getElementsByTagName("tr");
+  var rows = 0;
+
+  for (var i = 1; i < countRows.length; i++) {
+    rows = rows + 1;
+  }
+  /*console.log(rows);*/
+
+}
+
+function checkboxAdmin() {
+  var admin = document.getElementById("input-admin");
+
+  if (admin.checked == true) {
+    return "X";
+  } else {
+    return "-";
+  }
+}
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

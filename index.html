@@ -11,41 +11,41 @@
 
 	<script src="src/index.js" defer></script>	
 </body>
-    <table>
-        <tbody>
-            <tr>
-                <th>Username</td>
-                <th>Email</td>
-                <th>Address</td>
-                <th>Admin</td>
-            </tr>
-            <tr>
-                <td>WebMaster</td>
-                <td>example@email.com</td>
-                <td>Internet 90000</td>
-                <td>X</td>
-            </tr>
-            <tr>
-                <td>Mrs.User</td>
-                <td>example@email.com</td>
-                <td>Home 9</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>Mr.User</td>
-                <td>example@email.com</td>
-                <td>Place 4322</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>Asdd</td>
-                <td>example@email.com</td>
-                <td>Qwerty 12345</td>
-                <td>-</td>
-            </tr>                        
-        </tbody>
+<body>
+    <table id="dataTable">
+        <tr>
+            <th>Username</td>
+            <th>Email</td>
+            <th>Address</td>
+            <th>Admin</td>
+        </tr>
+        <tr>
+            <td>WebMaster</td>
+            <td>example@email.com</td>
+            <td>Internet 90000</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>Mrs.User</td>
+            <td>example@email.com</td>
+            <td>Home 9</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Mr.User</td>
+            <td>example@email.com</td>
+            <td>Place 4322</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Asdd</td>
+            <td>example@email.com</td>
+            <td>Qwerty 12345</td>
+            <td>-</td>
+        </tr>
+	                       	
     </table>
-	<form action="" method="GET">
+	<form action="">
 		<label for="uname">Username</label>
 		<input type="text" name="uname" id="input-username"><br>
 		<label for="email">Email</label>
@@ -53,8 +53,9 @@
 		<label for="address">Address</label>
 		<input type="text" name="address" id="input-address"><br>
 		<label for="">Admin</label>
-		<input type="text" name="admin" id="input-admin"><br>
-		<input type="submit" value="Submit" id="submit-data">
-				
+		<input type="checkbox" name="admin" id="input-admin"><br>
+		<input type="button" value="submit" id="submit-data">		
 	</form>
+	<button id="empty-table">Emptytable</button>
+</body>
 </html>
