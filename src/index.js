@@ -12,7 +12,7 @@ if(document.readyState !== "loading") {
 function initializeCode() {
     countRowsInTable();
     const btnAddData = document.getElementById("submit-data");
-    /*const btnRemoveTable = document.getElementById("empty-table");*/ 
+    const btnRemoveTable = document.getElementById("empty-table");
     checkboxAdmin();
     btnAddData.addEventListener("click", function(){
         const table = document.getElementById("dataTable");
@@ -32,15 +32,15 @@ function initializeCode() {
         
     })
 
-    /*btnRemoveTable.addEventListener("click", function(){
+    btnRemoveTable.addEventListener("click", function(){
         const table=document.getElementById("dataTable");
-        const rows=document.getElementsByTagName("tr");
-        const rowCount=rows.length;
+        /*const rows=document.getElementsByTagName("tr");*/
         
-        for(let i=rowCount-1; i > 0; i--){
-            table.removeChild(rows[i]);
-        }
-    })*/
+        for(let i=table.rows.length -1 ; i> 0 ; i--){
+            table.deleteRow(i);
+        } 
+
+    })
     
 }
 function countRowsInTable(){

@@ -131,8 +131,7 @@ if (document.readyState !== "loading") {
 function initializeCode() {
   countRowsInTable();
   var btnAddData = document.getElementById("submit-data");
-  /*const btnRemoveTable = document.getElementById("empty-table");*/
-
+  var btnRemoveTable = document.getElementById("empty-table");
   checkboxAdmin();
   btnAddData.addEventListener("click", function () {
     var table = document.getElementById("dataTable");
@@ -148,15 +147,14 @@ function initializeCode() {
     addressColumn.innerHTML = document.getElementById("input-address").value;
     adminColumn.innerHTML = checkboxAdmin();
   });
-  /*btnRemoveTable.addEventListener("click", function(){
-      const table=document.getElementById("dataTable");
-      const rows=document.getElementsByTagName("tr");
-      const rowCount=rows.length;
-      
-      for(let i=rowCount-1; i > 0; i--){
-          table.removeChild(rows[i]);
-      }
-  })*/
+  btnRemoveTable.addEventListener("click", function () {
+    var table = document.getElementById("dataTable");
+    /*const rows=document.getElementsByTagName("tr");*/
+
+    for (var i = table.rows.length - 1; i > 0; i--) {
+      table.deleteRow(i);
+    }
+  });
 }
 
 function countRowsInTable() {
